@@ -2,7 +2,7 @@
   <picture>
     <source v-if="hasSmartphoneSrcset" :srcset="smartphoneSrcset" :sizes="smartphoneSizes" media="(max-width: 767px)">
     <source v-if="hasTabletSrcset" :srcset="tabletSrcset" :sizes="tabletSizes" media="(min-width: 768px) and (max-width: 1023px)">
-    <img :src="defaultImage" :alt="alt" :class="[defaultClass, imageClass]" :srcset="srcset" :sizes="sizes">
+    <img :src="defaultImage" :alt="alt" :class="[defaultClass, imageClass]" :srcset="srcset" :sizes="sizes" @click="clickEvent">
   </picture>
 </template>
 
@@ -58,6 +58,10 @@ export default {
     maxWidth: {
       type: Number,
       default: 1920
+    },
+    clickEvent: {
+      type: String,
+      default: ''
     }
   },
   data: () => {
